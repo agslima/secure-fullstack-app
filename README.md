@@ -9,7 +9,7 @@
 
 This repository documents the security audit and remediation of a Full-Stack Web Application (Node.js + React) as the final capstone for the **[Application Security for Developers and DevOps Professionals](https://www.coursera.org/learn/application-security-for-developers-devops)** certification.
 
-The primary objective was to take an intentionally vulnerable application, perform a comprehensive security scan using **Snyk**, and apply **Security by Design** principles to fix high-severity issues, reducing the overall risk exposure.
+The primary objective was to take an intentionally vulnerable application, perform a comprehensive security scan using **Snyk**, and apply **Security by Design** principles to address high-severity issues, thereby reducing overall risk exposure.
 
 ## 🎯 Key Objectives Achieved
 
@@ -18,8 +18,6 @@ The primary objective was to take an intentionally vulnerable application, perfo
 * **Remediation:** Upgraded vulnerable packages, patched code, and implemented defensive coding practices.
 * **Defensive Coding:** Applied fixes following **OWASP Top 10** principles (e.g., sanitizing inputs, securing headers).
 
----
-
 ## 🛠️ Tech Stack & Tools
 
 * **Frontend:** React.js
@@ -27,8 +25,6 @@ The primary objective was to take an intentionally vulnerable application, perfo
 * **Security Analysis:** [Snyk](https://snyk.io) (Software Composition Analysis & SAST)
 * **Container Security:** Docker Scan
 * **Monitoring (Concept):** Prometheus & Grafana methodologies
-
----
 
 ## 🔒 Security Analysis & Remediation Report
 
@@ -56,12 +52,15 @@ After applying the fixes and re-running the CI/CD pipeline checks:
 
 | Severity | Initial Count | Current Count | Status |
 | :--- | :---: | :---: | :--- |
-| **Critical** | 5 | 0 | ✅ Fixed |
-| **High** | 8 | 0 | ✅ Fixed |
-| **Medium** | 12 | 2 | ⚠️ Accepted Risk (Documented) |
-| **Low** | 15 | 5 | ℹ️ Backlog |
+| **Critical** | 27 | 0 | ✅ Fixed |
+| **High** | 116 | 0 | ✅ Fixed |
+| **Medium** | 191 | 1 | ⚠️ Accepted Risk (Documented) |
+| **Low** | 345 | 22 | ℹ️ Backlog |
 
----
+### Screenshots
+| First scan | After the fix |
+|---|---|
+| ![image](https://github.com/agslima/secure-app-vulnerability-remediation/blob/main/images/scan-snyk-01.png) | ![image](https://github.com/agslima/secure-app-vulnerability-remediation/blob/main/images/scan-snyk-02.png) |
 
 ## 🚀 How to Reproduce the Audit
 
@@ -95,6 +94,8 @@ snyk test
 
 Note: The current build should pass with no Critical or High vulnerabilities.
 
+---
+
 ## 📚 Course Concepts Applied
 
 * Security by Design: Shifting security left in the SDLC.
@@ -102,6 +103,8 @@ Note: The current build should pass with no Critical or High vulnerabilities.
 * Defensive Coding: Writing code that anticipates attacks.
 
 * Monitoring: Understanding the importance of "Golden Signals" (Latency, Traffic, Errors, Saturation) for detecting anomalies that might indicate a breach.
+
+---
 
 ## 📜 License
 
