@@ -11,7 +11,7 @@ This repository documents the security audit and remediation of a Full-Stack Web
 
 The primary objective was to take an intentionally vulnerable application, perform a comprehensive security scan using **Snyk**, and apply **Security by Design** principles to address high-severity issues, thereby reducing overall risk exposure.
 
-## 🎯 Key Objectives Achieved
+## Key Objectives Achieved
 
 * **Vulnerability Scanning:** Automated detection of vulnerabilities in open-source dependencies (SCA) and code logic (SAST) using Snyk.
 * **Risk Assessment:** Prioritized fixes based on CVSS scores (Critical/High severity first).
@@ -63,7 +63,7 @@ After applying the fixes and re-running the CI/CD pipeline checks:
 |---|---|
 | ![image](https://github.com/agslima/secure-app-analysis/blob/main/images/scan-snyk-01.png) | ![image](https://github.com/agslima/secure-app-analysis/blob/main/images/scan-snyk-02.png) |
 
-## 🚀 How to Reproduce the Audit
+## How to Reproduce the Audit
 
 To verify the current security status of the application, follow these steps:
 
@@ -104,7 +104,7 @@ Note: The current build should pass with no Critical or High vulnerabilities.
 
 ---
 
-## 📚 Course Concepts Applied
+## Course Concepts Applied
 
 * Security by Design: Shifting security left in the SDLC.
 
@@ -114,6 +114,6 @@ Note: The current build should pass with no Critical or High vulnerabilities.
 
 ---
 
-## 📜 License
+## License
 
 This project is for educational purposes as part of the Coursera/IBM curriculum.
