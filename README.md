@@ -18,7 +18,7 @@ The primary objective was to take an intentionally vulnerable application, perfo
 * **Remediation:** Upgraded vulnerable packages, patched code, and implemented defensive coding practices.
 * **Defensive Coding:** Applied fixes following **OWASP Top 10** principles (e.g., sanitizing inputs, securing headers).
 
-## 🛠️ Tech Stack & Tools
+## Tech Stack & Tools
 
 * **Frontend:** React.js
 * **Backend:** Node.js / Express
