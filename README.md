@@ -57,10 +57,11 @@ After applying the fixes and re-running the CI/CD pipeline checks:
 | **Medium** | 191 | 1 | ⚠️ Accepted Risk (Documented) |
 | **Low** | 345 | 22 | ℹ️ Backlog |
 
-### Screenshots
+#### Screenshots
+
 | First scan | After the fix |
 |---|---|
-| ![image](https://github.com/agslima/secure-app-vulnerability-remediation/blob/main/images/scan-snyk-01.png) | ![image](https://github.com/agslima/secure-app-vulnerability-remediation/blob/main/images/scan-snyk-02.png) |
+| ![image](https://github.com/agslima/secure-app-analysis/blob/main/images/scan-snyk-01.png) | ![image](https://github.com/agslima/secure-app-analysis/blob/main/images/scan-snyk-02.png) |
 
 ## 🚀 How to Reproduce the Audit
 
@@ -69,7 +70,7 @@ To verify the current security status of the application, follow these steps:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/agslima/secure-app-vulnerability-remediation.git
+git clone https://github.com/agslima/secure-app-analysis.git
 cd secure-app-analysis
 ```
 
@@ -82,7 +83,14 @@ npm install
 ### 3. Run Security Scan (Snyk)
 
 You need a Snyk account and CLI installed.
-Bash
+
+Download a standalone executable (for macOS, Linux, and Windows) of the Snyk CLI for your platform.
+```bash
+curl https://static.snyk.io/cli/latest/snyk-linux -o snyk
+chmod +x ./snyk
+mv ./snyk /usr/local/bin/
+```
+Authenticate your machine to associate it with your Snyk Account
 
 ```bash
 # Authenticate
