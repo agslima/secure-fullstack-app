@@ -69,7 +69,7 @@ To verify the current security status of the application, follow these steps:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/secure-app-analysis.gitq
+git clone https://github.com/agslima/secure-app-vulnerability-remediation.git
 cd secure-app-analysis
 ```
 
