@@ -7,7 +7,7 @@
 
 ## 🛡️ Project Overview
 
-This repository documents the security audit and remediation of a Full-Stack Web Application (Node.js + React) as the final capstone for the **[Application Security for Developers and DevOps Professionals](https://www.coursera.org/learn/application-security-for-developers-devops)** certification.
+This repository documents the security audit and remediation of a Full-Stack Web Application (Node.js + React) as capstone project.
 
 The primary objective was to take an intentionally vulnerable application, perform a comprehensive security scan using **Snyk**, and apply **Security by Design** principles to address high-severity issues, thereby reducing overall risk exposure.
 
@@ -85,11 +85,13 @@ npm install
 You need a Snyk account and CLI installed.
 
 Download a standalone executable (for macOS, Linux, and Windows) of the Snyk CLI for your platform.
+
 ```bash
 curl https://static.snyk.io/cli/latest/snyk-linux -o snyk
 chmod +x ./snyk
 mv ./snyk /usr/local/bin/
 ```
+
 Authenticate your machine to associate it with your Snyk Account
 
 ```bash
@@ -104,13 +106,13 @@ Note: The current build should pass with no Critical or High vulnerabilities.
 
 ---
 
-## Course Concepts Applied
+## Concepts Applied
 
-* Security by Design: Shifting security left in the SDLC.
+* **Security by Design:** Shifting security left in the SDLC.
 
-* Defensive Coding: Writing code that anticipates attacks.
+* **Defensive Coding:** Writing code that anticipates attacks.
 
-* Monitoring: Understanding the importance of "Golden Signals" (Latency, Traffic, Errors, Saturation) for detecting anomalies that might indicate a breach.
+* **Monitoring:** Understanding the importance of "Golden Signals" (Latency, Traffic, Errors, Saturation) for detecting anomalies that might indicate a breach.
 
 ---
 
