@@ -25,13 +25,13 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
 
-        # Add this temporary debug step
-      - name: Debug File Structure
-        run: |
-          echo "Listing root files:"
-          ls -la
-          echo "Listing package files:"
-          ls -la package-lock.json
+      # Add this temporary debug step
+      # - name: Debug File Structure
+      #   run: |
+      #   echo "Listing root files:"
+      #   ls -la
+      #   echo "Listing package files:"
+      #   ls -la package-lock.json
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -45,12 +45,16 @@ jobs:
         run: npm ci
         
       # (SAST) - Snyk
-      - name: Run Snyk to check for vulnerabilities
-        uses: snyk/actions/node@master
+      # REPLACES the 'uses: snyk/actions/node@master' block
+      # 1. Install Snyk globally using npm
+      - name: Install Snyk CLI
+        run: npm install -g snyk
+
+      # 2. Run the test directly (No Docker container issues!)
+      - name: Run Snyk Security Check
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-        with:
-          args: --severity-threshold=high
+        run: snyk test --severity-threshold=high
 
       # Tests (TDD)
       - name: Run Unit & Integration Tests
