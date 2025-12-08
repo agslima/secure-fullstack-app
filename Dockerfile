@@ -13,7 +13,7 @@ WORKDIR /app
 # Copy ONLY the package definition files first.
 # If package.json hasn't changed, Docker uses the cached layer here,
 # making your builds instant.
-COPY server/package*.json ./
+COPY package*.json ./
 
 # 'npm ci' is strictly for CI/CD (uses lockfile).
 # '--only=production' prevents installing devDependencies (like Jest/Eslint) in the final image.
@@ -23,7 +23,7 @@ RUN npm ci --only=production && npm cache clean --force
 # 4. Application Code
 # --chown=node:node is CRITICAL. It ensures the files belong to the
 # non-root user, allowing the app to read them without root permissions.
-COPY --chown=node:node server/ .
+COPY --chown=node:node . .
 
 # 5. Security: Non-Root User
 # This prevents an attacker from having root access to the container
