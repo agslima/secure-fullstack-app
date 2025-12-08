@@ -1,11 +1,13 @@
 # Secure Full-Stack App: DevSecOps Reference Architecture
 
+![CD/CD Status](https://github.com/agslima/secure-app-analysis/actions/workflows/devsecops.yml/badge.svg)
 [![Node.js](https://img.shields.io/badge/Backend-Node.js-green.svg)](https://nodejs.org/)
 [![React](https://img.shields.io/badge/Frontend-React-blue.svg)](https://reactjs.org/)
 [![Security: Snyk](https://img.shields.io/badge/Security-Snyk-4C4A73.svg)](https://snyk.io/)
 [![OWASP](https://img.shields.io/badge/Compliance-OWASP%20Top%2010-red.svg)](https://owasp.org/)
-[![Security: Snyk](https://img.shields.io/badge/Security-Snyk-4C4A73.svg)](https://snyk.io/)
 [![SLSA Level 3](https://img.shields.io/badge/SLSA-Level%203-brightgreen.svg)](https://slsa.dev/)
+[![Docker](https://img.shields.io/badge/Deployment-Docker-blue.svg)](https://docker.com)
+[![License](https://img.shields.io/badge/License-Apache%202.0-lightgrey.svg)](https://opensource.org/licenses/Apache-2.0)
 
 ## 🛡️ Project Overview
 
