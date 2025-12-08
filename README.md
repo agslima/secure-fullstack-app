@@ -166,7 +166,6 @@ npm start
 * **Monitoring (Concept):** Prometheus & Grafana methodologies
 
 <!---
-
 ## License
 
 This project is for educational purposes as part of the Coursera/IBM curriculum.
