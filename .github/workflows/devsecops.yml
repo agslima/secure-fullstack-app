@@ -13,6 +13,11 @@ jobs:
   # Job 1: CI and Code Security
   ci-security-check:
     runs-on: ubuntu-latest
+    # 1. Tell all 'run' commands to execute inside the 'server' folder
+    defaults:
+      run:
+        working-directory: ./server
+
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
@@ -22,6 +27,8 @@ jobs:
         with:
           node-version: '18'
           cache: 'npm'
+          # 2. Tell the Action exactly where the lock file is
+          cache-dependency-path: server/package-lock.json
 
       - name: Install Dependencies
         run: npm ci
