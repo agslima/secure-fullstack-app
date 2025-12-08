@@ -13,6 +13,8 @@ jobs:
   # Job 1: CI and Code Security
   ci-security-check:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     # 1. Tell all 'run' commands to execute inside the 'server' folder
     defaults:
       run:
