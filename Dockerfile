@@ -1,10 +1,12 @@
+USER node
+
 FROM node:24.11.1-trixie-slim
 
 RUN npm install -g npm@9.1.3
 
-ADD package.json .
-ADD index.js .
-ADD build .
+COPY package.json .
+COPY index.js .
+COPY build .
 COPY . .
 RUN npm install
 
