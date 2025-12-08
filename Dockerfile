@@ -1,7 +1,7 @@
 # 1. Base Image
 # Use the slim version.
 # 'slim' images have fewer vulnerabilities than full OS images.
-FROM node:24.11.1-trixie-slim
+FROM node:24.11.1-alpine3.21
 
 # 2. Environment Setup
 # setting NODE_ENV to production ensures many libraries (like Express)
