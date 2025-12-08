@@ -15,11 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-    # 1. Tell all 'run' commands to execute inside the 'server' folder
-    defaults:
-      run:
-        working-directory: ./server
-
+    
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
