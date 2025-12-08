@@ -29,6 +29,6 @@
     "supertest": "^7.1.4"
   },
   "overrides": {
-    "glob": "^10.5.0"
+    "glob": "^11.1.0"
   }
 }
