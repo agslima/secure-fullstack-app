@@ -85,7 +85,7 @@ After applying the fixes and re-running the CI/CD pipeline checks:
 
 #### Evidence of Remediation
 
-| First scan | After the fix |
+| Initial Vulnerability Scan | Post-Fix Clean Scan |
 |---|---|
 | ![image](https://github.com/agslima/secure-app-analysis/blob/main/images/scan-snyk-01.png) | ![image](https://github.com/agslima/secure-app-analysis/blob/main/images/scan-snyk-02.png) |
 
