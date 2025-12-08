@@ -21,6 +21,14 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
+        
+      # 👇 Add this temporary debug step
+      - name: Debug File Structure
+        run: |
+          echo "Listing root files:"
+          ls -la
+          echo "Listing server files:"
+          ls -la server/
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
