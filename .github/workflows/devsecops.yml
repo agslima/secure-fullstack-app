@@ -7,7 +7,7 @@ on:
     branches: [ "main" ]
 
 env:
-  IMAGE_NAME: ${{ secrets.DOCKER_USERNAME }}/secure-fullstack-app
+  IMAGE_NAME: ${{ secrets.DOCKER_HUB_USERNAME }}/secure-fullstack-app
 
 jobs:
   # Job 1: CI and Code Security
@@ -46,7 +46,7 @@ jobs:
       - name: Secret Scanning with Gitleaks
         uses: gitleaks/gitleaks-action@v2
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
 
   # Job 2: CD and Container Security
   cd-build-push:
@@ -65,8 +65,8 @@ jobs:
       - name: Login to Docker Hub
         uses: docker/login-action@v2
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
       # Lint Dockerfile
       - name: Lint Dockerfile
