@@ -1,36 +1,62 @@
-# Secure Full-Stack App: Vulnerability Remediation Project
+# Secure Full-Stack App: DevSecOps Reference Architecture
 
 [![Node.js](https://img.shields.io/badge/Backend-Node.js-green.svg)](https://nodejs.org/)
 [![React](https://img.shields.io/badge/Frontend-React-blue.svg)](https://reactjs.org/)
 [![Security: Snyk](https://img.shields.io/badge/Security-Snyk-4C4A73.svg)](https://snyk.io/)
 [![OWASP](https://img.shields.io/badge/Compliance-OWASP%20Top%2010-red.svg)](https://owasp.org/)
+[![Security: Snyk](https://img.shields.io/badge/Security-Snyk-4C4A73.svg)](https://snyk.io/)
+[![SLSA Level 3](https://img.shields.io/badge/SLSA-Level%203-brightgreen.svg)](https://slsa.dev/)
 
 ## 🛡️ Project Overview
 
-This repository documents the security audit and remediation of a Full-Stack Web Application (Node.js + React) as capstone project.
+This repository hosts a **Full-Stack Web Application (Node.js + React)** that serves as a reference architecture for a **Secure Software Supply Chain**.
 
-The primary objective was to take an intentionally vulnerable application, perform a comprehensive security scan using **Snyk**, and apply **Security by Design** principles to address high-severity issues, thereby reducing overall risk exposure.
+Originally developed as a vulnerability remediation capstone, this project has evolved to implement **SLSA (Supply-chain Levels for Software Artifacts)** principles, **Test-Driven Development (TDD)**, and automated security gates within **GitHub Actions**.
 
-## Key Objectives Achieved
+### Key Features
 
-* **Vulnerability Scanning:** Automated detection of vulnerabilities in open-source dependencies (SCA) and code logic (SAST) using Snyk.
-* **Risk Assessment:** Prioritized fixes based on CVSS scores (Critical/High severity first).
-* **Remediation:** Upgraded vulnerable packages, patched code, and implemented defensive coding practices.
-* **Defensive Coding:** Applied fixes following **OWASP Top 10** principles (e.g., sanitizing inputs, securing headers).
+* **Automated Security Gates:** Builds fail if vulnerabilities or secrets are detected.
+* **Container Security:** Image scanning, signing, and verification.
+* **Observability:** Implementation of Software Bill of Materials (SBOM).
+* **Legacy Remediation:** A documented case study of fixing critical CVEs.
 
-## Tech Stack & Tools
+---
 
-* **Frontend:** React.js
-* **Backend:** Node.js / Express
-* **Security Analysis:** [Snyk](https://snyk.io) (Software Composition Analysis & SAST)
-* **Container Security:** Docker Scan
-* **Monitoring (Concept):** Prometheus & Grafana methodologies
+## 🚀 The DevSecOps Pipeline
 
-## 🔒 Security Analysis & Remediation Report
+I used GitHub Actions to enforce security checks at every stage of the lifecycle. The pipeline ensures that no insecure code is built or deployed.
 
-### 1. Initial Assessment (The Problem)
+```mermaid
+graph TD
+    A[Code Commit] -->|1. Secret Scan| B(Gitleaks)
+    B -->|2. SCA & SAST| C(Snyk)
+    C -->|3. Unit Tests| D(Jest/TDD)
+    D -->|4. Build| E[Docker Build]
+    E -->|5. Linting| F(Hadolint)
+    E -->|6. Image Scan| G(Trivy)
+    G -->|7. Sign & SBOM| H(Cosign & Syft)
+    H --> I[Registry Push]
+```
 
-Before remediation, the application was scanned using the Snyk CLI. The initial report revealed critical vulnerabilities in the dependency tree.
+### Tooling Strategy
+
+| Stage |Tool |Purpose |
+| :--- | :---: | :---: |
+| 1. Secret Scanning | Gitleaks | Prevents hardcoded  credentials/secrets from entering the repo. |
+| 2. SCA & SAST | Snyk |Scans dependencies and code logic for known vulnerabilities. |
+| 3. Testing (TDD) |Jest + Supertest | Validates application logic and API endpoints before build. |
+| 4. Docker Linting | Hadolint | Enforces best practices in Dockerfile construction. |
+| 5. Container Scan |Trivy | Scans the built Docker image for OS-level vulnerabilities. |
+| 6. Image Signing | Cosign | Cryptographically signs the image to guarantee integrity (SLSA). |
+| 7. SBOM Generation | Syft | Generates a Software Bill of Materials (SPDX) for transparency. |
+
+## 🔬 Case Study: nSecurity Analysis & Vulnerability Remediation
+
+ Context: This section documents the initial security audit performed on the legacy codebase as part of the Application Security for Developers certification.
+
+### 1. The Problem (Initial Assessment)
+
+Before remediation, the application was scanned using Snyk. The report revealed a critical security debt in the dependency tree.
 
 **Common Vulnerabilities Detected:**
 
@@ -38,15 +64,15 @@ Before remediation, the application was scanned using the Snyk CLI. The initial 
 * **Prototype Pollution:** Found in backend utility packages.
 * **Arbitrary Code Execution:** Critical flaw in a deep dependency.
 
-### 2. Remediation Process (The Fix)
+### 2. The Solution (Remediation Process)
 
 I adopted a systematic approach to fix these issues:
 
 1. **Direct Upgrades:** Updated `package.json` to move packages to safe versions suggested by Snyk.
 2. **Patches:** Used `snyk wizard` to apply patches where upgrades were not immediately possible.
-3. **Code Refactoring:** Modified backend logic to validate user input and prevent injection attacks.
+3. **Defensive Coding:** Refactored backend logic to validate input and sanitize headers (OWASP Top 10).
 
-### 3. Final Status (The Result)
+### 3. The Result (Final Status)
 
 After applying the fixes and re-running the CI/CD pipeline checks:
 
@@ -57,30 +83,42 @@ After applying the fixes and re-running the CI/CD pipeline checks:
 | **Medium** | 191 | 1 | ⚠️ Accepted Risk (Documented) |
 | **Low** | 345 | 22 | ℹ️ Backlog |
 
-#### Screenshots
+#### Evidence of Remediation
 
 | First scan | After the fix |
 |---|---|
 | ![image](https://github.com/agslima/secure-app-analysis/blob/main/images/scan-snyk-01.png) | ![image](https://github.com/agslima/secure-app-analysis/blob/main/images/scan-snyk-02.png) |
 
-## How to Reproduce the Audit
+## Local Development & Testing
 
-To verify the current security status of the application, follow these steps:
+### Prerequisites
 
-### 1. Clone the Repository
+* **Node.js v18+**
+* **Docker**
+
+### 1. Installation
 
 ```bash
 git clone https://github.com/agslima/secure-app-analysis.git
 cd secure-app-analysis
-```
-
-### 2. Install Dependencies
-
-```bash
 npm install
 ```
 
-### 3. Run Security Scan (Snyk)
+### 2. Running Tests (TDD)
+
+This project follows Test-Driven Development. To ensure the application logic and security headers are functioning correctly:
+
+```bash
+# Run unit and integration tests
+npm test
+
+# Run tests in watch mode (for development)
+npm run test:watch
+```
+
+To verify the current security status of the application, follow these steps:
+
+### 3. Running the Security Audit
 
 You need a Snyk account and CLI installed.
 
@@ -102,20 +140,32 @@ snyk auth
 snyk test
 ```
 
-Note: The current build should pass with no Critical or High vulnerabilities.
+### 4. Running the App
+
+```bash
+npm start
+```
 
 ---
 
-## Concepts Applied
+## Policy & Compliance
 
 * **Security by Design:** Shifting security left in the SDLC.
+* **Security Policy:** See SECURITY.md for reporting guidelines.
+* **SBOM:** A Software Bill of Materials is generated for every release, available in the pipeline artifacts.
+* **Verification:** Docker images pulled from this registry can be verified using the public key hosted in the repo.
 
-* **Defensive Coding:** Writing code that anticipates attacks.
+## Tech Stack & Tools
 
-* **Monitoring:** Understanding the importance of "Golden Signals" (Latency, Traffic, Errors, Saturation) for detecting anomalies that might indicate a breach.
+* **Frontend:** React.js
+* **Backend:** Node.js / Express
+* **Security Analysis:** [Snyk](https://snyk.io) (Software Composition Analysis & SAST), Trivy, Gitleaks
+* **Supply Chain:** Cosign, Syft
+* **Monitoring (Concept):** Prometheus & Grafana methodologies
 
----
+<!---
 
 ## License
 
 This project is for educational purposes as part of the Coursera/IBM curriculum.
+-->
