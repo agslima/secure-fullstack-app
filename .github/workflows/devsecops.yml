@@ -113,7 +113,9 @@ jobs:
 
       #  Cosign instalation for image sign (SLSA)
       - name: Install Cosign
-        uses: sigstore/cosign-installer@v3.1.1
+        uses: sigstore/cosign-installer@v3.7.0 # Atualizado de v3.1.1 para v3.7.0
+        with:
+          cosign-release: 'v2.4.1' # Força a versão mais recente e estável do Cosign
 
       - name: Sign the published Docker image
         env:
