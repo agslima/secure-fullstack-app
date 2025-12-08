@@ -16,7 +16,7 @@ jobs:
     permissions:
       contents: read
     
-    # 👇 CRITICAL: This tells 'run' commands (npm ci, npm test) to execute inside 'server'
+    # This tells 'run' commands (npm ci, npm test) to execute inside 'server'
     defaults:
       run:
         working-directory: ./server
@@ -24,6 +24,8 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       # Add this temporary debug step
       # - name: Debug File Structure
@@ -37,10 +39,9 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18'
-          # 👇 CRITICAL: Tells the Action where the lockfile is
+          # Tells the Action where the lockfile is
           cache-dependency-path: server/package-lock.json
-          # REMOVED: cache-dependency-path... (Auto-detection works for root files)
-
+          
       - name: Install Dependencies
         run: npm ci
         
