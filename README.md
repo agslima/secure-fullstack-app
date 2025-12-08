@@ -82,8 +82,8 @@ After applying the fixes and re-running the CI/CD pipeline checks:
 | :--- | :---: | :---: | :--- |
 | **Critical** | 27 | 0 | ✅ Fixed |
 | **High** | 116 | 0 | ✅ Fixed |
-| **Medium** | 191 | 1 | ⚠️ Accepted Risk (Documented) |
-| **Low** | 345 | 22 | ℹ️ Backlog |
+| **Medium** | 191 | 0 | ✅ Fixed |
+| **Low** | 345 | 0 | ✅ Fixed |
 
 #### Evidence of Remediation
 
