@@ -25,7 +25,7 @@ jobs:
         run: |
           echo "Listing root files:"
           ls -la
-          echo "Listing server files:"
+          echo "Listing package files:"
           ls -la package-lock.json
 
       - name: Setup Node.js
