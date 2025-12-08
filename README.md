@@ -24,7 +24,7 @@ Originally developed as a vulnerability remediation capstone, this project has e
 
 ---
 
-## 🚀 The DevSecOps Pipeline
+## The DevSecOps Pipeline
 
 I used GitHub Actions to enforce security checks at every stage of the lifecycle. The pipeline ensures that no insecure code is built or deployed.
 
@@ -52,7 +52,7 @@ graph TD
 | 6. Image Signing | Cosign | Cryptographically signs the image to guarantee integrity (SLSA). |
 | 7. SBOM Generation | Syft | Generates a Software Bill of Materials (SPDX) for transparency. |
 
-## 🔬 Case Study: nSecurity Analysis & Vulnerability Remediation
+## 🔬 Case Study: Security Analysis & Vulnerability Remediation
 
  Context: This section documents the initial security audit performed on the legacy codebase as part of the Application Security for Developers certification.
 
