@@ -21,26 +21,17 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
-        
-      # 👇 Add this temporary debug step
-      - name: Debug File Structure
-        run: |
-          echo "Listing root files:"
-          ls -la
-          echo "Listing server files:"
-          ls -la server/
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
           cache: 'npm'
-          # 2. Tell the Action exactly where the lock file is
-          cache-dependency-path: server/package-lock.json
+          # REMOVED: cache-dependency-path... (Auto-detection works for root files)
 
       - name: Install Dependencies
         run: npm ci
-
+        
       # (SAST) - Snyk
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/node@master
