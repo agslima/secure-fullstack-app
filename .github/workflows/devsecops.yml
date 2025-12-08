@@ -16,6 +16,11 @@ jobs:
     permissions:
       contents: read
     
+    # 👇 CRITICAL: This tells 'run' commands (npm ci, npm test) to execute inside 'server'
+    defaults:
+      run:
+        working-directory: ./server
+        
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
