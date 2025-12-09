@@ -19,7 +19,7 @@ This repository hosts a **Full-Stack Web Application (Node.js + React)** designe
 
 * **Automated Security Gates:** Builds fail if vulnerabilities or secrets are detected.
 * **Container Security:** Image scanning, signing, and verification.
-* **Observability:** Implementation of Software Bill of Materials (SBOM).
+<!--* **Observability:** Implementation of Software Bill of Materials (SBOM).-->
 * **Legacy Remediation:** A documented case study of fixing critical CVEs.
 
 ---
