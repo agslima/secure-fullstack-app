@@ -1,6 +1,6 @@
 # Secure Full-Stack Application
 
-![CD/CD Status](https://github.com/agslima/secure-app-analysis/actions/workflows/devsecops.yml/badge.svg)
+![CD/CD Status](https://github.com/agslima/secure-app-analysis/actions/workflows/ci-cd.yml/badge.svg)
 [![Node.js](https://img.shields.io/badge/Backend-Node.js-green.svg)](https://nodejs.org/)
 [![React](https://img.shields.io/badge/Frontend-React-blue.svg)](https://reactjs.org/)
 [![Security: Snyk](https://img.shields.io/badge/Security-Snyk-4C4A73.svg)](https://snyk.io/)
