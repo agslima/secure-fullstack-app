@@ -154,7 +154,6 @@ npm start
 
 * **Security by Design:** Shifting security left in the SDLC.
 * **Security Policy:** See SECURITY.md for reporting guidelines.
-* **SBOM:** A Software Bill of Materials is generated for every release, available in the pipeline artifacts.
 * **Verification:** Docker images pulled from this registry can be verified using the public key hosted in the repo.
 
 ## Tech Stack & Tools
