@@ -1,19 +1,19 @@
-# Secure Full-Stack App: DevSecOps Reference Architecture
+# Secure Full-Stack Application
 
 ![CD/CD Status](https://github.com/agslima/secure-app-analysis/actions/workflows/devsecops.yml/badge.svg)
 [![Node.js](https://img.shields.io/badge/Backend-Node.js-green.svg)](https://nodejs.org/)
 [![React](https://img.shields.io/badge/Frontend-React-blue.svg)](https://reactjs.org/)
 [![Security: Snyk](https://img.shields.io/badge/Security-Snyk-4C4A73.svg)](https://snyk.io/)
 [![OWASP](https://img.shields.io/badge/Compliance-OWASP%20Top%2010-red.svg)](https://owasp.org/)
-[![SLSA Level 3](https://img.shields.io/badge/SLSA-Level%203-brightgreen.svg)](https://slsa.dev/)
 [![Docker](https://img.shields.io/badge/Deployment-Docker-blue.svg)](https://docker.com)
 [![License](https://img.shields.io/badge/License-Apache%202.0-lightgrey.svg)](https://opensource.org/licenses/Apache-2.0)
 
 ## 🛡️ Project Overview
 
-This repository hosts a **Full-Stack Web Application (Node.js + React)** that serves as a reference architecture for a **Secure Software Supply Chain**.
+This repository hosts a **Full-Stack Web Application (Node.js + React)** designed to showcase modern Software Engineering and DevOps practices.
 
-Originally developed as a vulnerability remediation capstone, this project has evolved to implement **SLSA (Supply-chain Levels for Software Artifacts)** principles, **Test-Driven Development (TDD)**, and automated security gates within **GitHub Actions**.
+<!--Originally developed as a vulnerability remediation capstone, this project has evolved to implement **SLSA (Supply-chain Levels for Software Artifacts)** principles, **Test-Driven Development (TDD)**, designed to showcase modern Software Engineering and DevOps practices. **GitHub Actions**.
+-->
 
 ### Key Features
 
@@ -22,45 +22,9 @@ Originally developed as a vulnerability remediation capstone, this project has e
 * **Observability:** Implementation of Software Bill of Materials (SBOM).
 * **Legacy Remediation:** A documented case study of fixing critical CVEs.
 
-## Context: The Imperative of Secure Software
-
-In the modern digital landscape, security cannot be an afterthought. The traditional approach of checking for vulnerabilities only before production is risky and costly. This project adopts a **"Shift Left"** philosophy, integrating security measures from the very first line of code to the final artifact delivery.
-
-### Why this Architecture Matters?
-
-Securing the software lifecycle protects both the business and the end-user by addressing three critical layers:
-
-1.  **Security by Design (Development Phase):**
-    By using **TDD** and **SAST (Snyk)** during coding, we prevent vulnerabilities like XSS and Injection from ever entering the codebase. This reduces the "Cost of Fix" significantly compared to patching in production.
-
-2.  **Supply Chain Integrity (Build Phase):**
-    Attackers increasingly target the CI/CD pipeline itself (e.g., SolarWinds). This project implements **SLSA Level 3** principles using **Cosign** and **Syft**, ensuring that the artifact built is tamper-proof and its ingredients (dependencies) are transparent via SBOMs.
-
-3.  **User Trust (Runtime Phase):**
-    By scanning containers (**Trivy**) and strictly managing secrets (**Gitleaks**), we ensure that the application delivered to the user is free from known exploits and hardcoded credentials, guaranteeing data privacy and system reliability.
-
-```mermaid
-graph TD
-    subgraph "Traditional Security (Expensive)"
-      A[Design] --> B[Code] --> C[Build] --> D[Test] --> E[Release] --> F{Security Scan}
-      F -->|Vulnerabilities Found| B
-    end
-
-    subgraph "Shift Left Security (Cost Effective)"
-      G[Design] --> H[Code] --> I[Build] --> J[Test] --> K[Release]
-      S1(Threat Model) -.-> G
-      S2(SAST / IDE) -.-> H
-      S3(SCA / Container Scan) -.-> I
-      
-      style S1 fill:#c7f9cc,stroke:#333
-      style S2 fill:#c7f9cc,stroke:#333
-      style S3 fill:#c7f9cc,stroke:#333
-    end
-```
-
 ---
 
-## The DevSecOps Pipeline
+## The DevOps Pipeline
 
 I used GitHub Actions to enforce security checks at every stage of the lifecycle. The pipeline ensures that no insecure code is built or deployed.
 
