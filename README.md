@@ -8,7 +8,7 @@
 [![Docker](https://img.shields.io/badge/Deployment-Docker-blue.svg)](https://docker.com)
 [![License](https://img.shields.io/badge/License-Apache%202.0-lightgrey.svg)](https://opensource.org/licenses/Apache-2.0)
 
-## 🛡️ Project Overview
+## Project Overview 🛡️
 
 This repository hosts a **Full-Stack Web Application (Node.js + React)** designed to showcase modern Software Engineering and DevOps practices.
 
@@ -51,7 +51,7 @@ graph TD
 | 6. Image Signing | Cosign | Cryptographically signs the image to guarantee integrity (SLSA). |
 | 7. SBOM Generation | Syft | Generates a Software Bill of Materials (SPDX) for transparency. |
 
-## 🔬 Case Study: Security Analysis & Vulnerability Remediation
+## Case Study: Security Analysis & Vulnerability Remediation 🔬
 
  Context: This section documents the initial security audit performed on the legacy codebase as part of the Application Security for Developers certification.
 
